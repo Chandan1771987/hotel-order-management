@@ -1,16 +1,10 @@
 
 
   <% if @item.avatar.attached? %>
-
     <img class="ui left centered large image" src="<%=(url_for(@item.avatar)) %>">
   <% end %>
 
 <table class="ui celled center aligned table">
-  <tr>
-    <th>Field</th>
-    <th>Value</th>
-  </tr>
-
 
   <tr>
     <td>Item Name</td>
