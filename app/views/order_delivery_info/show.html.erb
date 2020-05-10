@@ -1,0 +1,26 @@
+<h1 class="ui grid center aligned">Delivery Info</h1>
+
+<table class="ui celled center aligned table">
+  <tr>
+    <th>Field</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+
+  <tr>
+    <td>Order ID</td>
+    <td><%= @item.order_id %></td>
+  </tr>
+
+  <tr>
+    <td>Delivery Status</td>
+    <td><%= @item.status %></td>
+  </tr>
+
+</table>
+
+<div class="ui grid centered padded"><%= link_to 'Edit', edit_order_delivery_info_path(@item) %> | <%= link_to 'Back', orders_path %> | <%= link_to 'Destroy', order_delivery_info_path(@item),
+                                                                                                             method: :delete,
+                                                                                                             data: { confirm: 'Are you sure?' } %>
+
+</div>

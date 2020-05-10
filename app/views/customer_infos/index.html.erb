@@ -1,0 +1,45 @@
+
+
+<%= link_to 'New Order Delivery Info', new_customer_info_path %>
+
+<table class="ui celled aligned table">
+  <tr>
+    <th>Name</th>
+    <th>Last Name </th>
+    <th>House NO</th>
+    <th>Street</th>
+    <th>Area</th>
+    <th>City</th>
+    <th>State</th>
+    <th>PinCode</th>
+    <th>LandMark </th>
+    <th>Email</th>
+    <th>Phone No</th>
+    <th></th>
+  </tr>
+
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.last_name %></td>
+      <td><%= item.house_no %></td>
+      <td><%= item.street %></td>
+      <td><%= item.area %></td>
+      <td><%= item.city %></td>
+      <td><%= item.state %></td>
+      <td><%= item.pincode %></td>
+      <td><%= item.landmark %></td>
+      <td><%= item.email %></td>
+      <td><%= item.phone_no %></td>
+      <td><div class = "three items vertical menu">
+        <%= link_to 'Show', customer_info_path(item) %>
+        <%= link_to 'Edit', edit_customer_info_path(item) %>
+        <%= link_to 'Destroy', customer_info_path(item),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+      </div></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @items%>

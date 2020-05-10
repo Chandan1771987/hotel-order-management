@@ -1,0 +1,45 @@
+<h1 class="ui grid center aligned">Order Details</h1>
+
+<table class="ui celled center aligned table">
+  <tr>
+    <th>Field</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td><%= @order.id %></td>
+  </tr>
+
+  <tr>
+    <td>Name</td>
+    <td><%= @order.menu_item&.name %></td>
+  </tr>
+
+
+  <tr>
+    <td>Price</td>
+    <td><%= @order.menu_item&.price %></td>
+  </tr>
+
+  <tr>
+    <td>Quantity</td>
+    <td><%= @order.quantity %></td>
+  </tr>
+
+  <tr>
+    <td>Payable Amount</td>
+    <td><%= @order.price %></td>
+  </tr>
+
+  <tr>
+    <td>CustomerID</td>
+    <td><%= @order.customer_id %></td>
+  </tr>
+
+</table>
+
+<div class="ui grid centered padded"><%= link_to 'Edit', edit_order_path(@order) %> | <%= link_to 'Back', orders_path %> | <%= link_to 'Destroy', order_path(@order),
+                                                                                                         method: :delete,
+                                                                                                         data: { confirm: 'Are you sure?' } %>
+
+</div>

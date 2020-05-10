@@ -1,0 +1,35 @@
+
+
+<%= link_to 'New Menu Item', new_menu_item_path %>
+
+<table class="ui celled aligned table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.description %></td>
+      <td><%= item.price %></td>
+      <td>
+        <% if item.avatar.attached? %>
+          <img class="ui centered small image" src="<%=(url_for(item.avatar)) %>">
+        <% end %>
+      </td>
+      <td><%= link_to 'Show', menu_item_path(item) %></td>
+      <td><%= link_to 'Edit', edit_menu_item_path(item) %></td>
+      <td><%= link_to 'Destroy', menu_item_path(item),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="ui grid centered padded pagination"><%= will_paginate @items%></div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HotelOrderManagement</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <style>
+      ul.hmenu {
+        list-style: none;
+        margin: 2em 2em 2em;
+        padding: 0;
+      }
+
+      ul.hmenu li {
+        display: inline;
+      }
+
+    </style>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<!--    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">-->
+    <link rel="stylesheet" type="text/css" href="assets/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>-->
+    <script src="assets/semantic.min.js"></script>
+
+  </head>
+
+  <body>
+
+
+  <div class="ui vertical spaced menu">
+    <%= render 'devise/menu/registration_items' %>
+    <%= render 'devise/menu/login_items' %>
+  </div>
+
+
+  <div class="ui celled three item menu">
+    <%= link_to 'Orders', orders_path, :class => " item"%>
+    <%= link_to 'Menu Items', menu_items_path, :class => "item"%>
+    <%= link_to 'Customer Details', customer_infos_path, :class => "item"%>
+  </div>
+
+    <%= yield %>
+  </body>
+</html>

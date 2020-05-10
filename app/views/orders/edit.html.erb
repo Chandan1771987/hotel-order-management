@@ -1,0 +1,35 @@
+<h1>Edit Order</h1>
+
+
+<%= form_with(model: @order, class: "ui form page center grid", local: true) do |form| %>
+  <p>
+    <%= form.label :menu_item_id %><br>
+    <%= select_tag(:menu_item_id, options_for_select(MenuItem.order(:name).pluck(:name, :id), @order.menu_item_id), include_blank: true  )%>
+  </p>
+
+  <p>
+    <%= form.label :quantity %><br>
+    <%= form.text_field :quantity %>
+  </p>
+
+  <p>
+    <%= form.label :order_placed_type %><br>
+    <%= form.text_field :order_placed_type %>
+  </p>
+
+  <p>
+    <%= form.label :customer_id %><br>
+    <%= form.text_field :customer_id %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%= link_to 'Back', orders_path, class: "ui centered grid"%>

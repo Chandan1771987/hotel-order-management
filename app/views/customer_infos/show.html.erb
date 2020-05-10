@@ -1,0 +1,70 @@
+<h1 class="ui grid center aligned">Customer Info</h1>
+
+<table class="ui celled center aligned table">
+  <tr>
+    <th>Field</th>
+    <th>Value</th>
+  </tr>
+
+  <tr>
+    <td>First Name</td>
+    <td><%= @item.name %></td>
+  </tr>
+
+  <tr>
+    <td>LastName</td>
+    <td><%= @item.last_name %></td>
+  </tr>
+
+  <tr>
+    <td>HouseNo</td>
+    <td><%= @item.house_no %></td>
+  </tr>
+
+  <tr>
+    <td>Street</td>
+    <td><%= @item.street %></td>
+  </tr>
+
+  <tr>
+    <td>Area</td>
+    <td><%= @item.area %></td>
+  </tr>
+
+  <tr>
+    <td>City</td>
+    <td><%= @item.city %></td>
+  </tr>
+
+  <tr>
+    <td>State</td>
+    <td><%= @item.state %></td>
+  </tr>
+
+  <tr>
+    <td>Pin</td>
+    <td><%= @item.pincode %></td>
+  </tr>
+
+  <tr>
+    <td>Landmark</td>
+    <td><%= @item.landmark %></td>
+  </tr>
+
+  <tr>
+    <td>Email</td>
+    <td><%= @item.email %></td>
+  </tr>
+
+  <tr>
+    <td>Phone</td>
+    <td><%= @item.phone_no %></td>
+  </tr>
+
+</table>
+
+<div class="ui grid centered padded"><%= link_to 'Edit', edit_customer_info_path(@item) %> | <%= link_to 'Back', customer_infos_path %> | <%= link_to 'Destroy', customer_info_path(@item),
+                                                                                                                             method: :delete,
+                                                                                                                             data: { confirm: 'Are you sure?' } %>
+</div>
+

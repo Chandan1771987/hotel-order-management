@@ -1,0 +1,42 @@
+
+
+<%= link_to 'New Order', new_order_path %>
+
+<table class="ui celled aligned table">
+  <tr>
+    <th>ID</th>
+    <th>ItemName</th>
+    <th>ItemPrice</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Customer ID</th>
+    <th></th>
+    <th>Date</th>
+    <th>Payment</th>
+    <th>Delivery</th>
+  </tr>
+
+
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.menu_item&.name %></td>
+      <td><%= order.menu_item&.price %></td>
+      <td><%= order.quantity %></td>
+      <td><%= order.price %></td>
+      <td><%= order.customer_id %></td>
+      <td><div class = "three items vertical menu">
+        <%= link_to 'Show', order_path(order) %>
+        <%= link_to 'Edit', edit_order_path(order) %>
+        <%= link_to 'Destroy', order_path(order),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+      </div></td>
+      <td><%= order.created_at.strftime('%d-%m-%Y') %></td>
+      <td><%= link_to 'Payment', order_payment_info_path(order.payment_info) %></td>
+      <td><%= link_to 'Delivery', order_delivery_info_path(order.delivery_info) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @orders %>

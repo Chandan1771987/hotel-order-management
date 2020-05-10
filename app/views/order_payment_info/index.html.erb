@@ -1,0 +1,27 @@
+
+
+<table class="ui celled aligned table">
+  <tr>
+    <th>Order ID</th>
+    <th>Status</th>
+    <th>Payment Type</th>
+    <th>Transaction ID</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.order_id %></td>
+      <td><%= item.status %></td>
+      <td><%= item.payment_type %></td>
+      <td><%= item.transaction_id %></td>
+      <td><%= link_to 'Show', order_payment_info_path(item) %></td>
+      <td><%= link_to 'Edit', edit_order_payment_info_path(item) %></td>
+      <td><%= link_to 'Destroy', order_payment_info_path(item),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
