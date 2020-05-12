@@ -1,7 +1,38 @@
+<script>
+    $(document).ready(function() {
+        $('#menu_item_id').select2({
+            ajax: {
+                url: '/menu_items.json',
+                data: function (params) {
+                    var query = {
+                        page: 1,
+                        per_page: 20,
+                        name: params.term,
+                        type: 'public'
+                    }
+                    return query;
+                },
+                processResults: function (data) {
+                    var output = {
+                        results: data.items,
+                        pagination: {
+                            more: data.more
+                        }
+                    };
+                    return output;
+                },
+                cache: true
+            },
+            placeholder: 'Search for a menu item',
+        });
+    });
+
+</script>
+
 <%= form_with scope: :order, class: "ui form center aligned", url: orders_path, local: true do |form| %>
   <p>
     <%= form.label :menu_item_id %><br>
-    <%= select_tag(:menu_item_id, options_for_select(MenuItem.order(:name).pluck(:name, :id) ,:selected =>params[:option]), include_blank: true  )%>
+    <select id="menu_item_id"></select>
   </p>
 
   <p>

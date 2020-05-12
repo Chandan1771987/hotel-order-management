@@ -4,7 +4,15 @@ class MenuItemsController < ApplicationController
     page = 1 if page <= 0
     per_page = params[:per_page].to_i
     per_page = 10 if per_page <= 0
-    @items = MenuItem.paginate(page: page, per_page: per_page)
+    @items = MenuItem
+    @items = @items.where("name like ?", "%#{params[:name]}%") if params[:name].present?
+    @items = @items.paginate(page: page, per_page: per_page)
+    count = @items.size
+    more = page * per_page < count
+    respond_to do |format|
+      format.html { render 'index'}
+      format.json { render json: {result: true, items: @items.map(&:web_json), more: more, count: count} }
+    end
   end
 
   def show
