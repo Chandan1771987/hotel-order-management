@@ -11,7 +11,7 @@ default: &default
   database: hotel_order_management
   pool: 5
   username: root
-  password:
+  password: <%= ENV["DB_PASSWORD"] %>
   socket: /tmp/mysql.sock
 
 development:
