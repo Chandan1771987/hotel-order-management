@@ -8,7 +8,7 @@ default: &default
   adapter: mysql2
   timeout: 5000
   encoding: utf8mb4
-  database: aa10ybrwb978ssh
+  database: hotel-order-management
   pool: 5
   username: root
   password: <%= ENV["DB_PASSWORD"] %>
