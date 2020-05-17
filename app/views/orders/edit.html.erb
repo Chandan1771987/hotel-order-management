@@ -1,10 +1,10 @@
 <h1>Edit Order</h1>
 
 
-<%= form_with(model: @order, class: "ui form page center grid", local: true) do |form| %>
+<%= form_with(model: @order, class: "ui form page center", local: true) do |form| %>
   <p>
     <%= form.label :menu_item_id %><br>
-    <%= select_tag(:menu_item_id, options_for_select(MenuItem.order(:name).pluck(:name, :id), @order.menu_item_id), include_blank: true  )%>
+    <%= select_tag(:menu_item_id, options_for_select([], @order.menu_item_id), include_blank: true  )%>
   </p>
 
   <p>

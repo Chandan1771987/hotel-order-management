@@ -29,6 +29,39 @@
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#menu_item_id').select2({
+                ajax: {
+                    url: '/menu_items.json',
+                    data: function (params) {
+                        var query = {
+                            page: 1,
+                            per_page: 20,
+                            name: params.term,
+                            type: 'public'
+                        }
+                        return query;
+                    },
+                    processResults: function (data) {
+                        var output = {
+                            results: data.items,
+                            pagination: {
+                                more: data.more
+                            }
+                        };
+                        return output;
+                    },
+                    cache: true
+                },
+                placeholder: 'Search for a menu item',
+            });
+        });
+
+    </script>
+
   </head>
 
   <body>
